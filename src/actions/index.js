@@ -53,6 +53,14 @@ export async function deleteUserByID(user = {}) {
 
 export async function changeProfileByID(id = 0, user = {}) {
   let payload = null;
+
+  let currUser = await getUserDetailsByID(id);
+  console.log(currUser);
+  let oldImageRef = storage.refFromURL(currUser.payload[0].imageLink);
+  let oldImageName = oldImageRef.name;
+  console.log('Image Name: ', oldImageName);
+  if (oldImageName !== user.email) await oldImageRef.delete();
+
   const storageRef = storage.ref();
   const fileRef = storageRef.child(user.email);
   const uploadedImage = fileRef.put(user.imageLink);
