@@ -16,7 +16,7 @@ const DeleteUser = (props) => {
 
   const confirmDeletion = async () => {
     handleCloseDelete();
-    await props.deleteUserByID(props.userData.id);
+    await props.deleteUserByID(props.userData);
     console.log('Deletion status: ', props.deleteResponse);
     history.replace('/');
   };

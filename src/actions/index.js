@@ -34,10 +34,12 @@ export async function getUserDetailsByID(id = 0) {
   };
 }
 
-export async function deleteUserByID(id = 0) {
+export async function deleteUserByID(user = {}) {
   let payload = null;
+  let image = storage.refFromURL(user.imageLink);
   try {
-    let response = await axios.delete(`${baseURL}/${id}`);
+    await image.delete();
+    let response = await axios.delete(`${baseURL}/${user.id}`);
     payload = response;
     console.log('payload', payload);
   } catch (error) {
