@@ -2,9 +2,10 @@ import useForm from '../../custom/use-form-hook';
 import { Button, Modal, Form } from 'react-bootstrap-v5';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { updateUserByID } from '../../actions/index';
+import { updateUserByID, getCountries } from '../../actions/index';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
+import CountriesList from '../Register/countries-list';
 
 const EditUserData = (props) => {
   const [show, setShow] = useState(false);
@@ -22,7 +23,7 @@ const EditUserData = (props) => {
     const user = {
       userName: event.target.username.value,
       email: event.target.email.value,
-      city: event.target.city.value,
+      country: event.target.country.value,
     };
     await props.updateUserByID(props.userData.id, user);
     console.log('Update status: ', props.updateResponse);
@@ -81,15 +82,13 @@ const EditUserData = (props) => {
             </Form.Group>
 
             <Form.Group className='mb-3' controlId='validationCustom02'>
-              <Form.Label>City</Form.Label>
+              <Form.Label>country</Form.Label>
               <Form.Select
-                defaultValue={props.userData?.city}
-                name='city'
+                defaultValue={props.userData?.country}
+                name='country'
                 required>
-                <option disabled>Choose City</option>
-                <option>Cairo</option>
-                <option>Giza</option>
-                <option>Alex</option>
+                <option disabled>Choose Country</option>
+                <CountriesList countriesList={props.countriesList} />
               </Form.Select>
             </Form.Group>
           </Form>
@@ -111,12 +110,14 @@ export default connect(
   (state) => {
     return {
       updateResponse: state.users.updateResponse,
+      countriesList: state.users.countriesList,
     };
   },
   (dispatch) => {
     return bindActionCreators(
       {
         updateUserByID,
+        getCountries,
       },
       dispatch
     );

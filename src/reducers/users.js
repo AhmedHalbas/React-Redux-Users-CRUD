@@ -3,6 +3,9 @@ export function users(state = {}, action) {
     case 'USERS_LIST': {
       return { ...state, list: action.payload };
     }
+    case 'COUNTRIES_LIST': {
+      return { ...state, countriesList: action.payload };
+    }
     case 'USER_DETAILS': {
       return { ...state, details: action.payload };
     }

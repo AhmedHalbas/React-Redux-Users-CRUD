@@ -1,7 +1,7 @@
 import { Route } from 'react-router';
 import { Switch, BrowserRouter } from 'react-router-dom';
 import Home from './containers/Home/home';
-import Register from './containers/register';
+import Register from './containers/Register/register';
 import About from './components/about';
 import NotFound from './components/not-found';
 import UserDetails from './containers/UserDetails/user-details';

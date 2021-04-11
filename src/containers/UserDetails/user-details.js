@@ -27,7 +27,7 @@ const UserDetails = (props) => {
             <div className='col-4'>
               <p className='fs-1 fw-bolder'>{details[0].userName}</p>
               <p className='fs-3'>{details[0].email}</p>
-              <p className='fs-3'>{details[0].city}</p>
+              <p className='fs-3'>{details[0].country}</p>
             </div>
 
             <EditUserImage userData={details[0]} />

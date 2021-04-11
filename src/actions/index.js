@@ -4,6 +4,21 @@ import { storage } from '../utils/firebase-config';
 const baseURL = 'http://localhost:3000/api/users';
 const registerURL = 'http://localhost:3000/api/user/register';
 
+export async function getCountries() {
+  let payload = null;
+  try {
+    let response = await axios.get('http://vocab.nic.in/rest.php/country/json');
+    payload = response.data.countries;
+    console.log('Countries Payload:', payload);
+  } catch (error) {
+    console.log(error);
+  }
+  return {
+    type: 'COUNTRIES_LIST',
+    payload,
+  };
+}
+
 export async function getUserByName(userName = '') {
   let payload = null;
   try {

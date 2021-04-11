@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { getUserByName } from "../../actions/index";
+import { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { getUserByName } from '../../actions/index';
 
 const UserFilter = (props) => {
-  const [userName, setUserName] = useState("");
+  const [userName, setUserName] = useState('');
 
   //const brandRef = useRef();
 

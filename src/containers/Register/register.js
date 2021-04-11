@@ -1,11 +1,12 @@
 /* eslint-disable no-useless-escape */
-import useForm from '../custom/use-form-hook';
+import useForm from '../../custom/use-form-hook';
 import { connect } from 'react-redux';
-import { registerUser } from '../actions/index';
+import { registerUser, getCountries } from '../../actions/index';
 import { bindActionCreators } from 'redux';
 import { useHistory } from 'react-router';
 import { Button, Form } from 'react-bootstrap-v5';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import CountriesList from './countries-list';
 const Register = (props) => {
   const history = useHistory();
   const [validated, setValidated] = useState(false);
@@ -31,7 +32,7 @@ const Register = (props) => {
       const user = {
         userName: event.target.username.value,
         email: event.target.email.value,
-        city: event.target.city.value,
+        country: event.target.country.value,
         imageLink: image,
       };
       console.log('before await');
@@ -43,6 +44,11 @@ const Register = (props) => {
       history.replace('/');
     }
   };
+
+  useEffect(() => {
+    //console.log('inside useEffect');
+    props.getCountries();
+  }, []);
 
   return (
     <div className='d-flex justify-content-center align-items-center min-vh-100'>
@@ -85,12 +91,11 @@ const Register = (props) => {
           </Form.Group>
 
           <Form.Group className='mb-3' controlId='validationCustom02'>
-            <Form.Label>City</Form.Label>
-            <Form.Select defaultValue='Choose City' name='city' required>
-              <option disabled>Choose City</option>
-              <option>Cairo</option>
-              <option>Giza</option>
-              <option>Alex</option>
+            <Form.Label>Country</Form.Label>
+            <Form.Select defaultValue='Choose Country' name='country' required>
+              <option disabled>Choose Country</option>
+
+              <CountriesList countriesList={props.countriesList} />
             </Form.Select>
           </Form.Group>
 
@@ -118,9 +123,10 @@ export default connect(
   (state) => {
     return {
       response: state.users.response,
+      countriesList: state.users.countriesList,
     };
   },
   (dispatch) => {
-    return bindActionCreators({ registerUser }, dispatch);
+    return bindActionCreators({ registerUser, getCountries }, dispatch);
   }
 )(Register);
