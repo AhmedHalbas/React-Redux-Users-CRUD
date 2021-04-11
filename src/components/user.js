@@ -10,6 +10,7 @@ const User = ({ userData }) => {
           style={{ width: '18rem' }}
           className='border-dark text-white bg-dark m-3  '>
           <Card.Img
+            loading='lazy'
             variant='top'
             src={userData?.imageLink}
             width='200'
