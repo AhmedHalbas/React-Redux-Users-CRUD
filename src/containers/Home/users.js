@@ -4,6 +4,7 @@ import { clearUsers } from '../../actions/index';
 import { bindActionCreators } from 'redux';
 import { useEffect } from 'react';
 import { Spinner } from 'react-bootstrap-v5';
+import { PaginatedList } from 'react-paginated-list';
 const Users = (props) => {
   useEffect(() => {
     return () => {
@@ -14,11 +15,20 @@ const Users = (props) => {
   const renderUsers = ({ users }) => {
     if (users && users.length) {
       return (
-        <div className='row row-cols-3 mx-auto w-75 '>
-          {users.map((user) => {
-            return <User key={user.id} userData={user} />;
-          })}
-        </div>
+        <PaginatedList
+          loadingItem={<div>Loadng</div>}
+          list={users}
+          itemsPerPage={3}
+          renderList={(list) => (
+            <>
+              <div className='row row-cols-3 mx-auto  '>
+                {list.map((item, id) => {
+                  return <User key={id} userData={item} />;
+                })}
+              </div>
+            </>
+          )}
+        />
       );
     }
     return (
