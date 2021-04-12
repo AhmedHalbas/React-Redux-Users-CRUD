@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import User from '../../components/user';
-import { clearUsers } from '../../actions/index';
+import User from '../../../components/user/user';
+import { clearUsers } from '../../../actions/index';
 import { bindActionCreators } from 'redux';
 import { useEffect } from 'react';
 import { Spinner } from 'react-bootstrap-v5';

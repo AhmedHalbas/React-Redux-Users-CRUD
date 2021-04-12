@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { Link } from 'react-router-dom';
 import { Card } from 'react-bootstrap-v5';
+import './user.css';
 const User = ({ userData }) => {
   return (
     <div className='g-2 text-center image'>

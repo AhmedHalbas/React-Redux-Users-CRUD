@@ -2,15 +2,3 @@
   width: 0px;
   background: transparent; /* make scrollbar transparent */
 }
-
-a,
-u {
-  text-decoration: none;
-}
-
-.image {
-  transition: all 0.2s ease-in-out;
-}
-.image:hover {
-  transform: scale(1.1);
-}
