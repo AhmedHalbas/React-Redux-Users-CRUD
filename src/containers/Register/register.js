@@ -61,6 +61,7 @@ const Register = (props) => {
           <Form.Group className='mb-3' controlId='validationCustom01'>
             <Form.Label>User Name</Form.Label>
             <Form.Control
+              className='form-control-sm'
               required
               type='text'
               name='username'
@@ -77,6 +78,7 @@ const Register = (props) => {
           <Form.Group className='mb-3' controlId='validationCustom02'>
             <Form.Label>Email</Form.Label>
             <Form.Control
+              className='form-control-sm'
               required
               type='email'
               name='email'
@@ -92,7 +94,7 @@ const Register = (props) => {
 
           <Form.Group className='mb-3' controlId='validationCustom02'>
             <Form.Label>Country</Form.Label>
-            <Form.Select defaultValue='Choose Country' name='country' required>
+            <Form.Select className='form-select-sm' name='country' required>
               <option disabled>Choose Country</option>
 
               <CountriesList countriesList={props.countriesList} />
@@ -102,6 +104,7 @@ const Register = (props) => {
           <Form.Group controlId='val'>
             <Form.Label>Profile Picture</Form.Label>
             <Form.Control
+              className='form-control-sm'
               required
               type='file'
               onChange={(e) => {
@@ -110,7 +113,10 @@ const Register = (props) => {
             />
           </Form.Group>
 
-          <Button className='col-3 mx-auto' variant='primary' type='submit'>
+          <Button
+            className='col-5 col-md-6 mx-auto btn-sm '
+            variant='primary'
+            type='submit'>
             Register
           </Button>
         </Form>

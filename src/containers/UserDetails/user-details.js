@@ -23,7 +23,7 @@ const UserDetails = (props) => {
     if (details && details.length) {
       return (
         <div>
-          <div className='row d-flex justify-content-between p-5'>
+          <div className='row d-flex justify-content-between p-5 d-flex-md-column'>
             <div className='col-4'>
               <p className='fs-1 fw-bolder'>{details[0].userName}</p>
               <p className='fs-3'>{details[0].email}</p>

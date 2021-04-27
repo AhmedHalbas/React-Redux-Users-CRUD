@@ -31,11 +31,17 @@ const EditUserImage = (props) => {
   };
 
   return (
-    <div className='col-8 text-end w-25'>
+    <div className='col-md-8 d-flex justify-content-md-end col-12 justify-content-center'>
       <div>
-        <img className='img-fluid' src={props.userData.imageLink}></img>
-        <div className='text-center'>
-          <button className='btn btn-dark m-2' onClick={handleShowProfile}>
+        <img
+          width='200'
+          height='200'
+          className='img-fluid '
+          src={props.userData.imageLink}></img>
+        <div className='text-center '>
+          <button
+            className='btn btn-sm btn-dark m-2'
+            onClick={handleShowProfile}>
             Change Profile
           </button>
         </div>

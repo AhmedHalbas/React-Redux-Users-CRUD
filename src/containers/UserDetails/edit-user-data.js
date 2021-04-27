@@ -33,7 +33,7 @@ const EditUserData = (props) => {
   return (
     <div className='col-6'>
       <button
-        className='btn btn-dark rounded-pill col-6 m-2'
+        className='btn btn-dark rounded-pill col-6 m-2 btn-sm '
         onClick={handleShow}>
         Edit
       </button>

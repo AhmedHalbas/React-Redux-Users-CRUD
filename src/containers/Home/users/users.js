@@ -18,10 +18,10 @@ const Users = (props) => {
         <PaginatedList
           loadingItem={<div>Loadng</div>}
           list={users}
-          itemsPerPage={3}
+          itemsPerPage={6}
           renderList={(list) => (
             <>
-              <div className='row row-cols-3 mx-auto  '>
+              <div className='row row-cols-xl-3 d-flex justify-content-center row-cols-md-2 row-cols-1  '>
                 {list.map((item, id) => {
                   return <User key={id} userData={item} />;
                 })}

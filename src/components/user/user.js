@@ -5,11 +5,11 @@ import { Card } from 'react-bootstrap-v5';
 import './user.css';
 const User = ({ userData }) => {
   return (
-    <div className='g-2 text-center image'>
+    <div className='g-5 text-center d-flex justify-content-center image'>
       <Link to={`/users/${userData.id}`}>
         <Card
           style={{ width: '18rem' }}
-          className='border-dark text-white bg-dark m-3  '>
+          className='border-dark text-white bg-dark m-3 '>
           <Card.Img
             loading='lazy'
             variant='top'
